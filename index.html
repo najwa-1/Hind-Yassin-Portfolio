@@ -934,5 +934,14 @@ function renderAll(){renderMarquee();renderFlow();renderWork();
 (function(){let sl='en',st='light';try{sl=localStorage.getItem('hy_lang')||'en';st=localStorage.getItem('hy_theme')||'light';}catch(e){}
  setTheme(st);renderMarquee();renderFlow();renderWork();applyStatic();heroTitle();setLang(sl);observeReveals();syncHash();})();
 </script>
+<script>
+if(!window.matchMedia('(pointer:coarse)').matches){
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    var to=a.getAttribute('href').replace('mailto:','').split('?')[0];
+    a.setAttribute('href','https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su=Interior%20design%20enquiry');
+    a.setAttribute('target','_blank');a.setAttribute('rel','noopener');
+  });
+}
+</script>
 </body>
 </html>

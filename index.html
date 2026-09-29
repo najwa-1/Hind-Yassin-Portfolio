@@ -147,7 +147,7 @@ html[data-theme="light"] .nav:not(.scrolled) .mk-light{display:none}
 .hero-slide.on{opacity:1;animation:kb 7s ease-out forwards}
 @keyframes kb{from{transform:scale(1.09)}to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(10,8,7,.55),transparent 20%),linear-gradient(to top,rgba(10,8,7,.94) 3%,rgba(10,8,7,.5) 38%,rgba(10,8,7,.15) 72%),linear-gradient(105deg,rgba(10,8,7,.6),transparent 55%)}
-.hero-inner{position:relative;z-index:2;width:min(1280px,90vw);margin-inline:auto;padding-bottom:clamp(3rem,9vh,6.5rem);color:var(--hero-ink)}
+.hero-inner{position:relative;z-index:2;width:min(1280px,90vw);margin-inline:auto;padding-top:calc(var(--nav-h) + 1.5rem);padding-bottom:clamp(3rem,9vh,6.5rem);color:var(--hero-ink)}
 .hero-eyebrow{color:#f4dbe0;text-shadow:0 1px 14px rgba(0,0,0,.55);opacity:0;transform:translateY(16px);animation:fadeUp .8s var(--ease-out) .3s forwards}
 .hero-title{font-size:var(--s-4);color:#fff;margin:1.1rem 0;max-width:16ch;font-weight:300}
 .hero-title .ln{display:block;overflow:hidden}

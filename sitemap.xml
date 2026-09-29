@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.hindyassin.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.hindyassin.com/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.hindyassin.com/?lang=ar"/>
+    <loc>https://hind-yassin-portfolio.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hind-yassin-portfolio.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hind-yassin-portfolio.vercel.app/?lang=ar"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

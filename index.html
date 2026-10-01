@@ -742,8 +742,8 @@ function observeReveals(){document.querySelectorAll('.reveal,.stagger').forEach(
 })();
 
 /* ===== DATA ===== */
-const SOFTWARE=["AutoCAD","SketchUp","Adobe Photoshop","3ds Max","V-Ray"];
-const SKILLS=[["Concept Design","تصميم المفهوم"],["Hardscape Design","تصميم العناصر الصلبة"],["Site Planning & Landscaping","تخطيط المواقع وتنسيق الحدائق"],["Execution Details","تفاصيل التنفيذ"],["3D Visualization","الإظهار ثلاثي الأبعاد"],["Landscape Visualization","إظهار الحدائق"],["Quantity Takeoff (BOQ)","حصر الكميات"],["Site Analysis","تحليل الموقع"],["Technical Drawings","المخططات الفنية"]];
+const SOFTWARE=["AutoCAD","Adobe Photoshop","3ds Max","V-Ray"];
+const SKILLS=[["Concept Design","تصميم المفهوم"],["Site Planning & Landscaping","تخطيط المواقع وتنسيق الحدائق"],["Execution Details","تفاصيل التنفيذ"],["3D Visualization","الإظهار ثلاثي الأبعاد"],["Quantity Takeoff (BOQ)","حصر الكميات"],["Site Analysis","تحليل الموقع"],["Execution Drawings","المخططات التنفيذية"]];
 const IC={
  interior:'<path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-5h6v5"/>',
  threeD:'<path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/>',
@@ -827,6 +827,7 @@ const PROJECTS=[
   scope:['interior','threeD','finishes'],shots:['p9-1','p9-2','p9-3','p9-4']}
 ];
 const img=n=>'assets/img/'+n+'.jpg';
+const imgF=n=>'assets/img/full/'+n+'.jpg';
 const esc=x=>String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* ===== RENDER ===== */
@@ -889,10 +890,10 @@ function renderProject(){const i=L(),p=PROJECTS[pIdx],pv=document.getElementById
  const galTitle=T.lab_gallery[i];
  let galHtml;
  if(p.groups){
-   galHtml=p.groups.map(g=>`<div class="gal-group"><div class="gal-cat">${esc(g[0][i])}</div><div class="gal-carousel"><div class="gal-track">${g[1].map(s=>`<figure class="gal-shot"><img src="${img(s)}" alt="${esc(g[0][0])} — ${esc(p.title[0])}" loading="lazy"></figure>`).join('')}</div><button class="gal-nav prev" aria-label="previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 6l-6 6 6 6"/></svg></button><button class="gal-nav next" aria-label="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 6l6 6-6 6"/></svg></button></div></div>`).join('');
+   galHtml=p.groups.map(g=>`<div class="gal-group"><div class="gal-cat">${esc(g[0][i])}</div><div class="gal-carousel"><div class="gal-track">${g[1].map(s=>`<figure class="gal-shot"><img src="${imgF(s)}" alt="${esc(g[0][0])} — ${esc(p.title[0])}" loading="lazy"></figure>`).join('')}</div><button class="gal-nav prev" aria-label="previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 6l-6 6 6 6"/></svg></button><button class="gal-nav next" aria-label="next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 6l6 6-6 6"/></svg></button></div></div>`).join('');
  } else {
    const allShots=[p.img+'-cover',...p.shots];
-   galHtml='<div class="pv-gallery">'+allShots.map(s=>`<figure class="cell"><img src="${img(s)}" alt="${esc(p.title[0])}" loading="lazy"></figure>`).join('')+'</div>';
+   galHtml='<div class="pv-gallery">'+allShots.map(s=>`<figure class="cell"><img src="${imgF(s)}" alt="${esc(p.title[0])}" loading="lazy"></figure>`).join('')+'</div>';
  }
  const scope=p.scope.map(k=>`<span class="chip">${esc(SVK[k][i])}</span>`).join('');
  const relHtml=rel.map(r=>{const rp=PROJECTS[r];return `<article class="pv-card" data-open="${r}"><div class="im"><img src="${img(rp.img+'-cover')}" alt="${esc(rp.title[0])}" loading="lazy"></div><div class="meta"><div class="t">${esc(rp.title[i])}</div><div class="s">${esc(rp.ctry[1][i])} · ${esc(rp.type[i])} · ${rp.year}</div></div></article>`;}).join('');
@@ -901,7 +902,7 @@ function renderProject(){const i=L(),p=PROJECTS[pIdx],pv=document.getElementById
     <div class="pv-tools"><span class="pv-idx">${String(pIdx+1).padStart(2,'0')} / ${String(PROJECTS.length).padStart(2,'0')}</span>
     <button class="pill" id="pvLang" aria-label="language">${i?'EN':'ع'}</button>
    <button class="pill" id="pvTheme" aria-label="theme">${html.getAttribute('data-theme')==='dark'?ICON_MOON:ICON_SUN}</button></div></div></div>
-   <div class="pv-hero"><img src="${img(p.img+'-cover')}" alt="${esc(p.title[0])}"><div class="pv-hero-cap"><span class="tag">${esc(p.ctry[1][i])} · ${esc(p.type[i])}</span><h2>${esc(p.title[i])}</h2></div></div>
+   <div class="pv-hero"><img src="${imgF(p.img+'-cover')}" alt="${esc(p.title[0])}"><div class="pv-hero-cap"><span class="tag">${esc(p.ctry[1][i])} · ${esc(p.type[i])}</span><h2>${esc(p.title[i])}</h2></div></div>
    <div class="pv-body"><div class="pv-grid">
      <div class="pv-lead">${paras}</div>
      <div class="pv-spec">
